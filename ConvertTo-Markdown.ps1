@@ -5,7 +5,7 @@ Converts input objects (arrays, hashtables, and PSCustomObjects) to Markdown for
 .DESCRIPTION
 Author: Dieter Beckers 2024
 Version: 1.0 APR 24
-The Convert-ToMarkdown function takes input objects of types array, hashtable, or PSCustomObject and converts them into Markdown format. 
+The ConvertTo-Markdown function takes input objects of types array, hashtable, or PSCustomObject and converts them into Markdown format. 
 - For arrays, it generates a Markdown list where each item of the array is a list item.
 - For hashtables and PSCustomObjects, it generates a Markdown table. Each property of the hashtable or PSCustomObject becomes a column in the table.
 
@@ -14,19 +14,19 @@ The input object to be converted to Markdown format. This can be an array, hasht
 
 .EXAMPLE
 $array = 1..5
-$array | Convert-ToMarkdown
+$array | ConvertTo-Markdown
 
 Outputs a Markdown list of numbers from 1 to 5.
 
 .EXAMPLE
 $hashtable = @{Name='John Doe'; Age=30; Department='IT'}
-$hashtable | Convert-ToMarkdown
+$hashtable | ConvertTo-Markdown
 
 Converts the hashtable to a Markdown table with columns for Name, Age, and Department.
 
 .EXAMPLE
 $object = [PSCustomObject]@{Name='Jane Doe'; Age=29; Department='HR'}
-$object | Convert-ToMarkdown
+$object | ConvertTo-Markdown
 
 Converts the PSCustomObject to a Markdown table with columns for Name, Age, and Department.
 
@@ -38,7 +38,7 @@ https://www.markdownguide.org/basic-syntax/
 
 #>
 
-function Convert-ToMarkdown {
+function ConvertTo-Markdown {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
